@@ -1,0 +1,32 @@
+% test 
+% day 2 with aaron
+% pysic
+Cd = 0.5;
+m = 5;
+alpha = 0.004;
+
+Fin = horzcat((0:0.5:10),(10:-0.5:0));
+
+% system
+A = [0 1; 0  -(Cd/m - alpha/m)];
+B = [0 Fin/m]';
+C = [1 0; 0 1];
+D = [0 0]';
+
+t = linspace(0,30,40);
+U = zeros(1, length(Fin));
+
+inputMat = horzcat(
+lsim(sys, Fin./m, t)
+
+
+
+for idx = 1:length(Fin)
+    B = [0 Fin(idx)/m]';
+    sys = ss(A, B, C, D);
+    step(sys)
+    hold on
+end
+       
+sys = ss(A, B, C, D);
+step(sys)
